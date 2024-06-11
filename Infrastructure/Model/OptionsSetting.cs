@@ -126,6 +126,7 @@ namespace Infrastructure.Model
         public string TablePrefix { get; set; }
         public string ModuleName { get; set; }
         public int FrontTpl { get; set; }
+        public int UniappVersion { get; set; } = 2;
         public CsharpTypeArr CsharpTypeArr { get; set; }
     }
 
