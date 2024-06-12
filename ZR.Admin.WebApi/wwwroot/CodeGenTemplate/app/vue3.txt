@@ -27,9 +27,9 @@ $elseif(column.HtmlType == "checkbox" || column.HtmlType == "select" || column.H
       <view class="info-line">
         <text class="label-name">${labelName}</text>
 $if(column.HtmlType == "checkbox")
-        <dictTag :options="$if(column.DictType != "")options.${column.DictType} $else options.${column.CsharpFieldFl}Options$end" :value="item.${columnName} ? item.${columnName}.split(',') : []" />
+        <dictTag :options="$if(column.DictType != "")options.${column.DictType}$else options.${column.CsharpFieldFl}Options$end" :value="item.${columnName} ? item.${columnName}.split(',') : []" />
 $else
-        <dictTag :options="$if(column.DictType != "")options.${column.DictType} $else options.${column.CsharpFieldFl}Options$end" :value="item.${columnName}" />
+        <dictTag :options="$if(column.DictType != "")options.${column.DictType}$else options.${column.CsharpFieldFl}Options$end" :value="item.${columnName}" />
 $end
       </view>
 $else
