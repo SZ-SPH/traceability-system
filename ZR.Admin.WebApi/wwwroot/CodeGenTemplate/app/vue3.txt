@@ -72,18 +72,18 @@ $end
     <u-popup :show="show" mode="bottom" @close="show = false" @open="show = true">
       <view class="search-form">
         <view class="search-title">搜索</view>
-        <u--form labelPosition="left" :model="queryParams" labelWidth="100px" ref="uForm">
-          <u-form-item label="排序字段" prop="sort" borderBottom>
+        <up-form labelPosition="left" :model="queryParams" labelWidth="100px" ref="uForm">
+          <up-form-item label="排序字段" prop="sort" borderBottom>
             <uni-data-select v-model="queryParams.sort" :clear="true" :localdata="sortOptions"
               format="{label}"></uni-data-select>
-          </u-form-item>
+          </up-form-item>
 
-          <u-form-item label="排序方式" prop="sortType" borderBottom ref="item1">
+          <up-form-item label="排序方式" prop="sortType" borderBottom ref="item1">
             <u-radio-group v-model="queryParams.sortType">
               <u-radio label="升序" name="asc" :customStyle="{marginRight: '20px'}"></u-radio>
               <u-radio label="倒序" name="desc"></u-radio>
             </u-radio-group>
-          </u-form-item>
+          </up-form-item>
           <u-gap height="30"></u-gap>
 $foreach(column in genTable.Columns)
 $set(labelName = "")
@@ -97,11 +97,11 @@ $else
 $end
 
 $if(column.HtmlType == "datetime")
-          <u-form-item label="时间查询">
+          <up-form-item label="时间查询">
             <uni-datetime-picker :border="false" v-model="dateRange${column.CsharpField}" type="daterange" />
-          </u-form-item>
+          </up-form-item>
 $elseif(column.HtmlType == "radio" || column.HtmlType == "select")
-          <u-form-item label="${labelName}" prop="${column.CsharpFieldFl}" borderBottom ref="item2">
+          <up-form-item label="${labelName}" prop="${column.CsharpFieldFl}" borderBottom ref="item2">
             <view class="tag-wrap">            
               <view class="tag-item">
                 <u-tag text="全部" :plain="null != queryParams.${column.CsharpFieldFl}" name="" @click="queryParams.${column.CsharpFieldFl} = null">
@@ -113,15 +113,15 @@ $elseif(column.HtmlType == "radio" || column.HtmlType == "select")
                 </u-tag>
               </view>
             </view>
-          </u-form-item>
+          </up-form-item>
 $else
-          <u-form-item label="${labelName}" prop="${column.CsharpFieldFl}" borderBottom ref="item1">
+          <up-form-item label="${labelName}" prop="${column.CsharpFieldFl}" borderBottom ref="item1">
             <u--input v-model="queryParams.${column.CsharpFieldFl}" border="none" placeholder="请输入${labelName}"></u--input>
-          </u-form-item>
+          </up-form-item>
 $end
 $end
 $end
-        </u--form>
+        </up-form>
 
         <view class="btn-group">
           <u-button text="重置" icon="reload" :customStyle="{marginRight: '10px'}" shape="circle" type="success"
